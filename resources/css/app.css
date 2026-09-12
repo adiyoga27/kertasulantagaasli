@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Palet akurat dari logo ulantagga ASLI (kuantisasi 6 warna) */
+    --color-brand: #834d30;
+    --color-brand-dark: #5e3520;
+    --color-brand-light: #a9713f;
+    --color-paper: #efe5cf;
+    --color-paper-deep: #dfd0b9;
+    --color-ink: #1d130b;
+
+    /* Kompatibilitas tema lama (situs WP) */
+    --color-primary: #ffc514;
+    --color-heading: #1d130b;
+    --color-body: #2b2118;
+    --color-meta: #6f6257;
+    --color-link: #834d30;
+    --color-linkactive: #5e3520;
+    --color-cream: #efe5cf;
+    --color-foreground: #fffdf6;
+    --color-outline: #e4d8bf;
+    --color-highlight: #fd704f;
+    --color-gold: #dd9933;
+    --color-badge: #fb8c00;
+    --color-badgetext: #442908;
+    --color-alt: #f7f1e0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-cream);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+}
+
+/* Tekstur kertas halus khas logo */
+.paper-texture {
+    background-color: var(--color-paper);
+    background-image: radial-gradient(rgba(131, 77, 48, 0.08) 1px, transparent 1px);
+    background-size: 18px 18px;
+}
+
+.prose-ulantaga p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
